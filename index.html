@@ -21,28 +21,22 @@
         </div>
     </header>
 
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImg">
-        <div id="caption"></div>
-    </div>
-    
     <div id="home" class="container">
         <h1 class="animated-title">Проєкт благоустрою території Галичу</h1>
         <div class="gallery">
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/image1.jpg', 'Варіант 1')">
                 <img src="images/image1.jpg" alt="Фото 1">
                 <div class="caption">Варіант 1</div>
             </div>         
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/image2.jpg', 'Варіант 2')">
                 <img src="images/image2.jpg" alt="Фото 2">
                 <div class="caption">Варіант 2</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/image3.jpg', 'Варіант 3')">
                 <img src="images/image3.jpg" alt="Фото 3">
                 <div class="caption">Варіант 3</div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item" onclick="openModal('images/image4.jpg', 'Варіант 4')">
                 <img src="images/image4.jpg" alt="Фото 4">
                 <div class="caption">Варіант 4</div>
             </div>
@@ -57,8 +51,16 @@
     <div id="services" class="container">
         <h2>Креслення</h2>
         <p>Тут ви можете описати ваші креслення.</p>
-        <img src="images/image5.png" alt="Креслення 1" class="section-photo">
-        <img src="images/image6.png" alt="Креслення 2" class="section-photo">
+        <div class="gallery">
+            <div class="gallery-item" onclick="openModal('images/image5.png', 'Креслення 1')">
+                <img src="images/image5.png" alt="Креслення 1" class="section-photo">
+                <div class="caption">Креслення 1</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/image6.png', 'Креслення 2')">
+                <img src="images/image6.png" alt="Креслення 2" class="section-photo">
+                <div class="caption">Креслення 2</div>
+            </div>
+        </div>
     </div>
 
     <div id="contact" class="container">
@@ -71,8 +73,30 @@
         <p>Проект в процесі</p>
     </div>
 
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+
     <!-- JavaScript код -->
-    <script src="script.js"></script>
+    <script>
+        function openModal(src, captionText) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            var caption = document.getElementById("caption");
+
+            modal.style.display = "block";
+            modalImg.src = src;
+            caption.innerHTML = captionText;
+        }
+
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
-
